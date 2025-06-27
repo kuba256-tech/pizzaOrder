@@ -1,67 +1,35 @@
-.loading-screen {
-  background: #ef1c26;
-
+.pages {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 0% 10%;
-  padding-top: 8rem;
-
-  .slider-wrapper {
-    overflow: hidden;
-    width: 100%;
+  width: 400vw;
+  height: 100vh;
+  box-sizing: border-box;
+  overflow: hidden;
+  transition: all 2s ease-in-out;
+  .page {
+    width: 100vw;
     height: 100vh;
-    position: relative;
-  }
-
-  .slide-container {
     display: flex;
-    width: 200%;
-    height: 100vh;
-    position: relative;
-    transition: all 0.5s ease-in-out;
-  }
-
-  .slide {
-    width: 100%;
-    flex-shrink: 0;
-
-    height: 100%;
-    padding: 2rem;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-  }
-
-  h4 {
-    font-family: var(--font-family);
-    font-weight: 700;
-    font-size: 40px;
-    text-align: center;
-    color: #fff;
-  }
-
-  .loading-screen-content {
-    padding-top: 8rem;
-    display: flex;
+    transition: all 1s ease-in-out;
     flex-direction: column;
-    align-items: center;
-    img {
-      width: 80%;
+  }
+
+  .start-page {
+    background-color: red;
+    padding-top: 20%;
+
+    h4 {
+      font-weight: 700;
+      font-size: 40px;
+      text-align: center;
+      color: #fff;
     }
-  }
-  .loader {
-    text-align: center;
-    margin-top: auto;
-    margin-bottom: 30%;
-  }
+    .spinner-border {
+      margin-top: auto;
+      margin-bottom: 20%;
+    }
 
-  .home-screen-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     p {
       font-weight: 500;
       font-size: 28px;
@@ -69,15 +37,59 @@
       color: #fff;
     }
     span {
+      display: block;
+      font-weight: 500;
       text-align: center;
       color: #fff;
-      width: 50%;
+      text-align: center;
+    }
+    .home-screen-pic {
+      img {
+        width: 100%;
+      }
     }
   }
 
-  .home-screen-pic {
-    img {
-      width: 100%;
+  .continue-page {
+    .continue-page-content {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      img {
+        border-radius: 10px;
+        width: 344px;
+        height: 432px;
+      }
+      h4 {
+        font-weight: 700;
+        font-size: 32px;
+        text-align: center;
+        color: #000;
+      }
+      p {
+        font-size: 14px;
+        text-align: center;
+        color: #867878;
+      }
+    }
+    button {
+      box-shadow: 5px 9px 12px 2px #ed8e92;
+      background: #ef1c26;
+      border-radius: 4px;
+      margin-bottom: 2%;
+      width: 80vw;
+      border: none;
+      height: 7vh;
+      font-weight: 500;
+      font-size: 18px;
+      text-align: center;
+      color: #fff;
+      transition: all 0.3s ease-in-out;
+      &:hover {
+        transform: translate(0, 20px);
+        transition: all 0.3s ease-in-out;
+      }
     }
   }
 }
