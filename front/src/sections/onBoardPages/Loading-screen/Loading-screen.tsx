@@ -4,6 +4,7 @@ import getStartedPic2 from '../../../assets/go-start-pics/page-3-pic.svg';
 import StartPage1 from './StartPage1';
 import StartPage2 from './StartPage2';
 import StartPage3 from './StartPage3';
+import StartPage4 from './StartPage4';
 
 const LoadingScreen = () => {
   const [index, setIndex] = useState(0);
@@ -42,6 +43,7 @@ const LoadingScreen = () => {
         buttonText="Get Started"
         nextPageButton={nextPageButton}
       />
+      <StartPage4 index={index} />
     </div>
   );
 };

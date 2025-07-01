@@ -1,6 +1,6 @@
 .pages {
   display: flex;
-  width: 400vw;
+  width: 500vw;
   height: 100vh;
   box-sizing: border-box;
   overflow: hidden;
@@ -9,7 +9,7 @@
     width: 100vw;
     height: 100vh;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     transition: all 1s ease-in-out;
     flex-direction: column;
@@ -17,7 +17,7 @@
 
   .start-page {
     background-color: red;
-    padding-top: 20%;
+    padding-top: 10%;
 
     h4 {
       font-weight: 700;
@@ -51,15 +51,17 @@
   }
 
   .continue-page {
+    padding-top: 2%;
     .continue-page-content {
       display: flex;
       justify-content: center;
       flex-direction: column;
       align-items: center;
+      gap: 1rem;
       img {
         border-radius: 10px;
-        width: 344px;
-        height: 432px;
+        width: 100vw;
+        height: 50vh;
       }
       h4 {
         font-weight: 700;
@@ -73,23 +75,25 @@
         color: #867878;
       }
     }
-    button {
-      box-shadow: 5px 9px 12px 2px #ed8e92;
-      background: #ef1c26;
-      border-radius: 4px;
-      margin-bottom: 2%;
-      width: 80vw;
-      border: none;
-      height: 7vh;
-      font-weight: 500;
-      font-size: 18px;
-      text-align: center;
-      color: #fff;
-      transition: all 0.3s ease-in-out;
-      &:hover {
-        transform: translate(0, 20px);
-        transition: all 0.3s ease-in-out;
+
+    .final-page-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .logoPic {
+        width: 20%;
       }
+    }
+    .final-page-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .final-page-footer {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
     }
   }
 }

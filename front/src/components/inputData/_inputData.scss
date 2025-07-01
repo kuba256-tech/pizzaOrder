@@ -1,0 +1,25 @@
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  .input-group-label {
+    color: #867878;
+    display: block;
+    text-transform: capitalize;
+  }
+  .input-group-input {
+    padding: 10px 15px;
+    background: #fff;
+    outline: none;
+    transition: all 0.5s ease-in-out;
+    border: 1px solid rgba(239, 28, 38, 0.29);
+    box-shadow: 5px 9px 12px 2px #ed8e92;
+    transition: all 0.5s ease-in-out;
+    border-radius: 20px !important;
+  }
+  .input-group-input:focus {
+    box-shadow: 5px 9px 12px 2px #ed8e92;
+    transition: all 0.5s ease-in-out;
+    border-radius: 0 !important;
+  }
+}

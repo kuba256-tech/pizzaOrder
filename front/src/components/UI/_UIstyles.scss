@@ -1,0 +1,58 @@
+.button-component {
+  box-shadow: 5px 9px 12px 2px #ed8e92;
+  background: #ef1c26;
+  border-radius: 4px;
+  margin-bottom: 2%;
+  width: 80vw;
+  border: none;
+  height: 5vh;
+  font-weight: 500;
+  font-size: 18px;
+  text-align: center;
+  color: #fff;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    transform: translate(20px, 0px);
+    transition: all 0.3s ease-in-out;
+  }
+}
+
+.button-component.with-reg:hover {
+  box-shadow: 5px 9px 12px 2px #ed8e92;
+  background: #ed888d;
+  border: 1px solid red;
+  color: #2a2626;
+  transform: translate(20px, 0px);
+}
+
+.file-input {
+  .file-input-content {
+    display: flex;
+    align-items: center;
+    input {
+      outline: none;
+      border: none;
+      padding: 10px;
+      color: white;
+      background: #746f6f;
+    }
+    button {
+      border: none;
+      background: none;
+      padding: 10px;
+      position: relative;
+      background: #746f6f;
+      color: white;
+      border-left: 1px solid white;
+      &::after {
+        content: '';
+        opacity: 0.2;
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        left: 40%;
+        background: url('https://www.svgrepo.com/show/28557/upload-sign.svg') center center/ cover no-repeat;
+      }
+    }
+  }
+}

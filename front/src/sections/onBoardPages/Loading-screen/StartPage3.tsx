@@ -1,5 +1,5 @@
 interface IGetStartedState {
-  index: value;
+  index: number;
   img: string;
   contentTitle: string;
   contentText: string;
@@ -32,11 +32,13 @@ const StartPage3: React.FC<IGetStartedState> = ({
       >
         <div
           className="progress-bar progress-bar-striped progress-bar-animated"
-          style={{ width: `${index * 20}%` }}
+          style={{ width: `${index * 25}%` }}
         ></div>
       </div>
 
-      <button onClick={() => nextPageButton()}>{buttonText}</button>
+      <button className="button-component" onClick={() => nextPageButton()}>
+        {buttonText}
+      </button>
     </div>
   );
 };

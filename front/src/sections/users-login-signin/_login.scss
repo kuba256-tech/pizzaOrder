@@ -1,0 +1,62 @@
+.login-singin-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  margin-top: 20px;
+  position: relative;
+  .login-singin-page-top {
+    button {
+      border: none;
+      position: absolute;
+      left: 3%;
+      top: 20px;
+      &::after {
+        content: '';
+        width: 20px;
+        height: 20px;
+        background: url('../../assets/go-start-pics/arrowLeft.svg') center center/cover no-repeat;
+        position: absolute;
+      }
+    }
+  }
+  form {
+    height: 75%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4%;
+    .check-box-form {
+      display: flex;
+      align-items: center;
+      gap: 3%;
+      .check-box-input {
+        width: 30px;
+        height: 30px;
+      }
+    }
+    .sign-with {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+      .sign-with-element {
+        display: flex;
+        justify-content: space-evenly;
+        img {
+          width: 20%;
+        }
+      }
+    }
+  }
+  h4 {
+    font-size: 28px;
+    font-weight: 700;
+  }
+  span {
+    font-size: 14px;
+    text-align: center;
+    width: 100%;
+    color: #867878;
+  }
+}
