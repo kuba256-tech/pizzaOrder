@@ -37,7 +37,7 @@ export const login = createAsyncThunk<IUser, ILoginMutation, { rejectValue: IGlo
   'users/login',
   async (loginForm, { rejectWithValue }) => {
     try {
-      const response = await axiosApi.post<IRegisterAndLoadingResponse>('/users/sessions', loginForm);
+      const response = await axiosApi.post<IRegisterAndLoadingResponse>('/users/session', loginForm);
       return response.data.user;
     } catch (error) {
       if (isAxiosError(error) && error.response && error.response.status === 400) {

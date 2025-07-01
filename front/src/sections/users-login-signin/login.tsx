@@ -3,6 +3,8 @@ import InputData from '../../components/inputData/InputData';
 import { signInWithElements } from '../../GlobalConstant';
 import { useState } from 'react';
 import type { ILoginMutation } from '../../types';
+import { useAppDispatch } from '../../app/hooks';
+import { login } from './usersThunk';
 
 const initialState = {
   email: '',
@@ -11,6 +13,8 @@ const initialState = {
 
 const LoginSection = () => {
   const [userForm, setUserForm] = useState<ILoginMutation>(initialState);
+  const navigate = useNavigate();
+  const dispatch = useAppDispatch();
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value, name } = e.target;
@@ -20,12 +24,16 @@ const LoginSection = () => {
     }));
   };
 
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(userForm);
+    try {
+      await dispatch(login(userForm)).unwrap();
+      navigate('/home');
+    } catch (error) {
+      console.log(e);
+    }
   };
 
-  const navigate = useNavigate();
   return (
     <div className="login-singin-page container">
       <div className="login-singin-page-top">

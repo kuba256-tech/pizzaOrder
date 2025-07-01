@@ -19,6 +19,7 @@
     "react-dom": "^19.1.0",
     "react-redux": "^9.2.0",
     "react-router-dom": "^7.6.2",
+    "redux-persist": "^6.0.0",
     "redux-thunk": "^3.1.0",
     "sass": "^1.89.2"
   },
@@ -26,6 +27,7 @@
     "@eslint/js": "^9.29.0",
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
+    "@types/redux-persist": "^4.0.0",
     "@vitejs/plugin-react-swc": "^3.10.2",
     "eslint": "^9.29.0",
     "eslint-plugin-react-hooks": "^5.2.0",

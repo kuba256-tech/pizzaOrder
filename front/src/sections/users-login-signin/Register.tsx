@@ -16,6 +16,7 @@ const initialState: IRegisterMutation = {
 const RegisterSection = () => {
   const [userData, setUserData] = useState(initialState);
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const onChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -29,12 +30,12 @@ const RegisterSection = () => {
     e.preventDefault();
     try {
       await dispatch(register(userData)).unwrap();
+      navigate('/home');
     } catch (error) {
       console.log(error);
     }
   };
 
-  const navigate = useNavigate();
   return (
     <div className="login-singin-page container">
       <div className="login-singin-page-top">
