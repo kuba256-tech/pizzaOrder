@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { IGlobalError, IUser, IValidationError } from '../../types';
+import { register } from './usersThunk';
 
 interface IUserState {
   user: IUser | null;
@@ -20,8 +21,26 @@ const initialState: IUserState = {
 const userSlice = createSlice({
   name: 'users',
   initialState,
-  reducers: {},
-  extraReducers: (builder) => {},
+  reducers: {
+    logOutReducer: (state) => {
+      state.user = null;
+    },
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(register.pending, (state) => {
+        state.registerLoading = true;
+        state.registerError = null;
+      })
+      .addCase(register.fulfilled, (state, { payload }) => {
+        state.registerLoading = false;
+        state.user = payload.user;
+      })
+      .addCase(register.rejected, (state, { payload: error }) => {
+        state.registerError = error || null;
+        state.registerLoading = false;
+      });
+  },
   selectors: {
     selectUser: (state) => state.user,
     selectRegisterLoading: (state) => state.registerLoading,
@@ -32,5 +51,6 @@ const userSlice = createSlice({
 });
 
 export const usersReducer = userSlice.reducer;
+export const { logOutReducer } = userSlice.actions;
 export const { selectLoginError, selectLoginLoading, selectRegisterError, selectRegisterLoading, selectUser } =
   userSlice.selectors;

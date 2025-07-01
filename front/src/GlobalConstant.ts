@@ -7,3 +7,5 @@ export const signInWithElements = [
   { icon: appleIcon, title: 'appleIcon' },
   { icon: facebookIcon, title: 'facebookIcon' },
 ];
+
+export const apiUrl = 'http://localhost:8000';

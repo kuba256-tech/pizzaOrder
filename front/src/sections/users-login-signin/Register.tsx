@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import InputData from '../../components/inputData/InputData';
 import { useNavigate } from 'react-router-dom';
 import type { IRegisterMutation } from '../../types';
+import { useAppDispatch } from '../../app/hooks';
+import { register } from './usersThunk';
 
 const initialState: IRegisterMutation = {
   name: '',
@@ -13,6 +15,7 @@ const initialState: IRegisterMutation = {
 
 const RegisterSection = () => {
   const [userData, setUserData] = useState(initialState);
+  const dispatch = useAppDispatch();
 
   const onChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -22,9 +25,13 @@ const RegisterSection = () => {
     }));
   };
 
-  const onSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(userData);
+    try {
+      await dispatch(register(userData)).unwrap();
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const navigate = useNavigate();
