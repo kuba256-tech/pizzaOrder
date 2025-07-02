@@ -34,55 +34,53 @@ usersRouter.post('/', imagesUpload.single('image'), async (req, res, next) => {
   }
 });
 
-
-usersRouter.post("/session", async(req, res, next)=>{
-    try{
-        if(!req.body.email || !req.body.password){
-            res.status(400).send({
-                error:"email and password must be in req"
-            })
-        }
-        const user = await User.findOne({email:req.body.email});
-
-        if(!user){
-            res.status(400).send({error:"Email not found"});
-            return
-        }
-
-        const isMatch = await user.checkPassword(req.body.password);
-
-        if(!isMatch){
-            res.status(400).send({error:"Password is incorrect"});
-            return;
-        }
-
-        user.generateToken();
-
-        res.cookie("token", user.token,{
-            httpOnly:true,
-            secure:process.env.NODE_ENV === 'production',
-            sameSite:"strict"
-        })
-        await user.save();
-
-        const safeUser = {
-            _id:user._id,
-            email:user.email,
-            name:user.name,
-            avatar:user.avatar,
-        }
-
-        res.status(200).send({
-            message:"Email and password is correct",
-            user:safeUser
-        });
-
-    }catch(error){
-        if(error instanceof Error.ValidationError){
-            res.status(200).send({error})
-        }
-        next(error)
+usersRouter.post('/session', async (req, res, next) => {
+  try {
+    if (!req.body.email || !req.body.password) {
+      res.status(400).send({
+        error: 'email and password must be in req',
+      });
     }
-})
+    const user = await User.findOne({ email: req.body.email });
+
+    if (!user) {
+      res.status(400).send({ error: 'Email not found' });
+      return;
+    }
+
+    const isMatch = await user.checkPassword(req.body.password);
+
+    if (!isMatch) {
+      res.status(400).send({ error: 'Password is incorrect' });
+      return;
+    }
+
+    user.generateToken();
+
+    res.cookie('token', user.token, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: 'strict',
+    });
+    await user.save();
+
+    const safeUser = {
+      _id: user._id,
+      email: user.email,
+      name: user.name,
+      avatar: user.avatar,
+    };
+
+    res.status(200).send({
+      message: 'Email and password is correct',
+      user: safeUser,
+    });
+  } catch (error) {
+    if (error instanceof Error.ValidationError) {
+      res.status(200).send({ error });
+    }
+    next(error);
+  }
+});
 
 export default usersRouter;

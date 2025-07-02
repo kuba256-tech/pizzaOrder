@@ -33,3 +33,11 @@ export interface IValidationError {
 export interface IGlobalError {
   error: string;
 }
+
+export interface IPizza {
+  _id: string;
+  title: string;
+  image: string;
+  price: string;
+  information: string;
+}

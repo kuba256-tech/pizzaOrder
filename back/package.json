@@ -28,7 +28,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon index.ts",
     "format": "npx prettier . --write",
-    "format:check": "npx prettier . --check"
+    "format:check": "npx prettier . --check",
+    "seed": "ts-node fixtures"
   },
   "keywords": [],
   "author": "",
