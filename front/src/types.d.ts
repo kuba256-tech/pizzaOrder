@@ -41,3 +41,8 @@ export interface IPizza {
   price: string;
   information: string;
 }
+
+export interface ICartOrder {
+  amount: number;
+  pizza: IPizza;
+}

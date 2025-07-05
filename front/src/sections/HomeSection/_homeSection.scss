@@ -1,24 +1,43 @@
 .home-section {
+  position: relative;
   padding-top: 2rem;
   padding-bottom: 2rem;
+  transition: all 1s ease-in-out;
+  .backdrop {
+    transition: all 1s ease-in-out;
+    position: absolute;
+    left: 0px;
+    top: -100vh;
+    width: 100vw;
+    height: 100vh;
+    background: #000000;
+    opacity: 0.9;
+    z-index: 1;
+    color: rgb(165, 0, 0);
+    .backdrod-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      padding: 0 20px;
+      color: white;
+      img {
+        width: 20rem;
+        margin-bottom: 5%;
+      }
+    }
+  }
+  .active-backdrop {
+    top: 0vh;
+  }
+
   .home-header {
     .user-avatar {
       border-radius: 50%;
       border: 2px solid #eee;
     }
-    .notification-btn {
-      background: #fff;
-      border: none;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
-      border-radius: 12px;
-      padding: 6px 8px;
-      display: flex;
-      align-items: center;
-      transition: box-shadow 0.2s;
-      &:hover {
-        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
-      }
-    }
+
     .user-name {
       font-weight: 600;
       font-size: 1.1rem;
@@ -59,8 +78,8 @@
   }
 
   .pizza-cards-grid {
+    height: 600px;
     overflow: scroll;
-    height: 30rem;
     .pizza-card {
       background: #fff6f6;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
@@ -80,6 +99,7 @@
         font-size: 1rem;
       }
       .add-btn {
+        transition: all 0.5s ease-in-out;
         width: 30px;
         height: 30px;
         max-width: 40px;
@@ -92,8 +112,11 @@
         color: #ff4d4f;
         border: 2px solid #ff4d4f;
         font-size: 1.3rem;
-        box-shadow: 0 2px 8px rgba(255, 77, 79, 0.08);
-        margin-left: 8px;
+        box-shadow: 0 2px 8px rgba(137, 24, 26, 0.08);
+      }
+      .add-btn:hover {
+        transform: translatey(10px);
+        transition: all 0.5s ease-in-out;
       }
       .infor-btn {
         position: absolute;
