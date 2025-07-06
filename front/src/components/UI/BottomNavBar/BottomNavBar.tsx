@@ -1,5 +1,5 @@
 import './_bottomNavBar.scss';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import homeIcon from '../../../assets/icons/homeIcon.svg';
 import searchIcon from '../../../assets/icons/search.svg';
 import cartIcon from '../../../assets/icons/cart.svg';
@@ -9,20 +9,21 @@ import { selectCartsOrder } from '../../../sections/Cart/cartSlice';
 
 const BottomNavBar = () => {
   const cartOrder = useAppSelector(selectCartsOrder);
+  const navigate = useNavigate();
 
   let amount = cartOrder.reduce((sum, value) => sum + value.amount, 0);
 
   return (
     <nav className="bottom-nav-bar">
-      <NavLink to="/" className={({ isActive }) => (isActive ? 'nav-item active' : 'nav-item')}>
+      <NavLink to="/home" className={({ isActive }) => (isActive ? 'nav-item active' : 'nav-item')}>
         <img src={homeIcon} alt="Home" />
         <span>Home</span>
       </NavLink>
-      <NavLink to="/#" className={({ isActive }) => (isActive ? 'nav-item active' : 'nav-item')}>
+      <NavLink to="/home?focus=true" className={({ isActive }) => (isActive ? 'nav-item active' : 'nav-item')}>
         <img src={searchIcon} alt="Search" />
         <span>Search</span>
       </NavLink>
-      <NavLink to="/#" className={({ isActive }) => (isActive ? 'nav-item active' : 'nav-item ')}>
+      <NavLink to="/cart" className={({ isActive }) => (isActive ? 'nav-item active' : 'nav-item ')}>
         <img src={cartIcon} alt="Cart" />
         <span>Cart</span>
         <span className="cart-amount">{amount > 0 && amount}</span>

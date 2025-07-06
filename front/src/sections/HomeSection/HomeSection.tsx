@@ -1,9 +1,9 @@
-import { Navigate } from 'react-router-dom';
+import { Navigate, useLocation } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { selectUser } from '../users-login-signin/usersSlice';
 import noPic from '../../assets/icons/noPics.png';
 import { apiUrl } from '../../GlobalConstant';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import BottomNavBar from '../../components/UI/BottomNavBar/BottomNavBar';
 import { fetchPizzasThunk } from './PizzaThunks';
 import { selectAllPizzas } from './pizzaSlice';
@@ -16,6 +16,15 @@ const HomeSection = () => {
   const currentUser = useAppSelector(selectUser);
   const pizzas = useAppSelector(selectAllPizzas);
   const [onSearchSort, setOnSearchSort] = useState('');
+
+  const inputRef = useRef<HTMLInputElement>(null);
+  const location = useLocation();
+
+  const handleClick = () => {
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
+  };
 
   const dispatch = useAppDispatch();
   const [openWindow, setOpenWindow] = useState({ open: false, index: 0 });
@@ -35,7 +44,12 @@ const HomeSection = () => {
 
   useEffect(() => {
     void fetchPizzas();
-  }, []);
+    const params = new URLSearchParams(location.search);
+
+    if (params.get('focus') === 'true') {
+      inputRef.current?.focus();
+    }
+  }, [location]);
 
   const onSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
@@ -87,7 +101,14 @@ const HomeSection = () => {
           Quality Food
         </h4>
         <div className="search-bar mb-4">
-          <input type="text" className="form-control" placeholder="Search" value={onSearchSort} onChange={onSearch} />
+          <input
+            ref={inputRef}
+            type="text"
+            className="form-control"
+            placeholder="Search"
+            value={onSearchSort}
+            onChange={onSearch}
+          />
         </div>
         <div className="popular-now-section d-flex justify-content-between align-items-center mb-3">
           <h5 className="mb-0">Popular Now</h5>

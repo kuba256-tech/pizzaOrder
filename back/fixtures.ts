@@ -69,6 +69,48 @@ const run = async () => {
       information:
         'Sink your teeth into our handcrafted pizza, made with a crispy golden crust, rich tomato sauce, and the finest melted cheeses. Topped with your favorite ingredients and baked to perfection — every bite is a slice of heaven.',
     },
+     {
+      title: '5 Types',
+      image: 'fixtures/pizzas/4types.jpg',
+      price: 20,
+      information:
+        'Sink your teeth into our handcrafted pizza, made with a crispy golden crust, rich tomato sauce, and the finest melted cheeses. Topped with your favorite ingredients and baked to perfection — every bite is a slice of heaven.',
+    },
+    {
+      title: 'Full Mushroom with Onion',
+      image: 'fixtures/pizzas/FullMushroom.jpg',
+      price: 45,
+      information:
+        'Sink your teeth into our handcrafted pizza, made with a crispy golden crust, rich tomato sauce, and the finest melted cheeses. Topped with your favorite ingredients and baked to perfection — every bite is a slice of heaven.',
+    },
+    {
+      title: 'Full Pepperoni with sausages',
+      image: 'fixtures/pizzas/FullPeperoni.jpg',
+      price: 32,
+      information:
+        'Sink your teeth into our handcrafted pizza, made with a crispy golden crust, rich tomato sauce, and the finest melted cheeses. Topped with your favorite ingredients and baked to perfection — every bite is a slice of heaven.',
+    },
+    {
+      title: 'Full Veggie with cabbage',
+      image: 'fixtures/pizzas//fullVegier.jpg',
+      price: 20,
+      information:
+        'Sink your teeth into our handcrafted pizza, made with a crispy golden crust, rich tomato sauce, and the finest melted cheeses. Topped with your favorite ingredients and baked to perfection — every bite is a slice of heaven.',
+    },
+    {
+      title: 'Pure Pepperoni + with sauces',
+      image: 'fixtures/pizzas/PurePepperoni.jpg',
+      price: 50,
+      information:
+        'Sink your teeth into our handcrafted pizza, made with a crispy golden crust, rich tomato sauce, and the finest melted cheeses. Topped with your favorite ingredients and baked to perfection — every bite is a slice of heaven.',
+    },
+    {
+      title: 'Vegie Pepperoni with sauces',
+      image: 'fixtures/pizzas/vegiePepperoni.jpg',
+      price: 26,
+      information:
+        'Sink your teeth into our handcrafted pizza, made with a crispy golden crust, rich tomato sauce, and the finest melted cheeses. Topped with your favorite ingredients and baked to perfection — every bite is a slice of heaven.',
+    },
   );
 
   await db.close();

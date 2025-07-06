@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import type { IPizza } from '../../types';
 import { apiUrl } from '../../GlobalConstant';
 
@@ -9,8 +9,6 @@ interface IProps {
 }
 
 const PizzaCard: React.FC<IProps> = ({ pizza, setOpenWindow, addPizza }) => {
-  const [openModal, closeModal] = useState(false);
-
   return (
     <div className="col-6 mb-4" key={pizza._id}>
       <div className="pizza-card p-3 rounded shadow-sm text-center">

@@ -6,6 +6,7 @@ import HomeSection from './sections/HomeSection/HomeSection';
 import { useAppSelector } from './app/hooks';
 import { selectUser } from './sections/users-login-signin/usersSlice';
 import ProtectedRoute from './components/UI/ProtectedRoute/ProtectedRoute';
+import Cart from './sections/Cart/Cart';
 
 const App = () => {
   const currentUser = useAppSelector(selectUser);
@@ -23,6 +24,15 @@ const App = () => {
           element={
             <ProtectedRoute isAllowed={currentUser !== null}>
               <HomeSection />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/cart"
+          element={
+            <ProtectedRoute isAllowed={currentUser !== null}>
+              <Cart />
             </ProtectedRoute>
           }
         />
