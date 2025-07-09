@@ -29,7 +29,9 @@
     "dev": "nodemon index.ts",
     "format": "npx prettier . --write",
     "format:check": "npx prettier . --check",
-    "seed": "ts-node fixtures"
+    "seed": "ts-node fixtures",
+    "build": "tsc",
+    "start": "node dist/index.js"
   },
   "keywords": [],
   "author": "",
