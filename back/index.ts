@@ -5,13 +5,14 @@ import mongoose from 'mongoose';
 import config from './config';
 import pizzaRouter from './routers/pizzas';
 import cookieParser from 'cookie-parser';
+const mongoUri = process.env.MONGODB_URI;
 
 const app = express();
 const port = 8000;
 
 app.use(
   cors({
-    origin: 'http://localhost:5173',
+    origin: mongoUri,
     credentials: true,
   }),
 );
