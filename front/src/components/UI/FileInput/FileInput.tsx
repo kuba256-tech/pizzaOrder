@@ -6,7 +6,7 @@ interface Props {
   onGetFile: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
-const FileInput: React.FC<Props> = ({ name, label, onGetFile }) => {
+const FileInput: React.FC<Props> = ({ name, onGetFile }) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const [fileName, setFileName] = useState<string>('');
 

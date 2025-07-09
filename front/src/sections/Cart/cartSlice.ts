@@ -1,6 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { ICartOrder } from '../../types';
-import type { RootState } from '../../app/store';
 
 interface ICartState {
   cartOrder: ICartOrder[];
@@ -18,7 +17,6 @@ export const cartSlice = createSlice({
   reducers: {
     addPizzaReducer: (state, { payload }) => {
       const existingOrder = state.cartOrder.find((order) => order.pizza._id === payload._id);
-
       let updatedCart;
       if (existingOrder) {
         updatedCart = state.cartOrder.map((order) =>
@@ -58,7 +56,6 @@ export const cartSlice = createSlice({
       state.cartOrder = updatedCart.filter((item) => item.amount > 0);
     },
   },
-  extraReducers: (builder) => {},
   selectors: {
     selectCartsOrder: (state) => state.cartOrder,
     selectCartOrderSending: (state) => state.sendingCartOrder,

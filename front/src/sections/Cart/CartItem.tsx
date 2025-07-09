@@ -1,7 +1,7 @@
 import { useAppDispatch } from '../../app/hooks';
 import { apiUrl } from '../../GlobalConstant';
 import type { ICartOrder } from '../../types';
-import { addCartReducer, addPizzaReducer, deductCartReducer } from './cartSlice';
+import { addCartReducer, deductCartReducer } from './cartSlice';
 
 interface Props {
   cartItem: ICartOrder;

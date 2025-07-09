@@ -21,11 +21,7 @@ const HomeSection = () => {
   const inputRef = useRef<HTMLInputElement>(null);
   const location = useLocation();
 
-  const handleClick = () => {
-    if (inputRef.current) {
-      inputRef.current.focus();
-    }
-  };
+
 
   const dispatch = useAppDispatch();
   const [openWindow, setOpenWindow] = useState({ open: false, index: 0 });
