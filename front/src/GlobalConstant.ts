@@ -8,4 +8,4 @@ export const signInWithElements = [
   { icon: facebookIcon, title: 'facebookIcon' },
 ];
 
-export const apiUrl = 'http://localhost:8000';
+export const apiUrl = 'https://pizzaorder-back.onrender.com';
