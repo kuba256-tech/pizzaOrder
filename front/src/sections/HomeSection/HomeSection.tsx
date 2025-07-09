@@ -16,6 +16,7 @@ const HomeSection = () => {
   const currentUser = useAppSelector(selectUser);
   const pizzas = useAppSelector(selectAllPizzas);
   const [onSearchSort, setOnSearchSort] = useState('');
+  const [onSortBy, setOnSortBy] = useState("");
 
   const inputRef = useRef<HTMLInputElement>(null);
   const location = useLocation();
@@ -39,22 +40,25 @@ const HomeSection = () => {
   }
 
   const fetchPizzas = useCallback(async () => {
-    await dispatch(fetchPizzasThunk());
-  }, []);
+    await dispatch(fetchPizzasThunk(onSortBy));
+  }, [onSortBy]);
 
   useEffect(() => {
     void fetchPizzas();
     const params = new URLSearchParams(location.search);
-
     if (params.get('focus') === 'true') {
       inputRef.current?.focus();
     }
-  }, [location]);
+  }, [location, onSortBy]);
 
   const onSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
-    console.log(value);
     setOnSearchSort(value);
+  };
+
+  const onSort = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const { value } = e.target;
+    setOnSortBy(value);
   };
 
   const addPizza = async (pizza: IPizza) => {
@@ -112,9 +116,15 @@ const HomeSection = () => {
         </div>
         <div className="popular-now-section d-flex justify-content-between align-items-center mb-3">
           <h5 className="mb-0">Popular Now</h5>
-          <a href="#" className="see-all-link">
-            See All
-          </a>
+          <select value={onSortBy} className="see-all-link" onChange={onSort}>
+            <option defaultValue={'Sort By'} disabled>
+              Sort By
+            </option>
+            <option value={'price_asc'}>Price: Low to high</option>
+            <option value={'price_desc'}>Price: High to low</option>
+            <option value={'title_asc'}>Title: beginning to end</option>
+            <option value={'title_desc'}>Title: End to beginning</option>
+          </select>
         </div>
         <div className="pizza-cards-grid row">
           {pizzas

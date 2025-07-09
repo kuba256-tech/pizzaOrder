@@ -8,6 +8,7 @@ import { selectUser } from './sections/users-login-signin/usersSlice';
 import ProtectedRoute from './components/UI/ProtectedRoute/ProtectedRoute';
 import Cart from './sections/Cart/Cart';
 
+
 const App = () => {
   const currentUser = useAppSelector(selectUser);
 
@@ -36,6 +37,7 @@ const App = () => {
             </ProtectedRoute>
           }
         />
+
 
         <Route path="*" element={<h2>No Such Page </h2>} />
       </Routes>

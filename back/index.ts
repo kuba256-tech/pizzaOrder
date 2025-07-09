@@ -4,6 +4,7 @@ import usersRouter from './routers/users';
 import mongoose from 'mongoose';
 import config from './config';
 import pizzaRouter from './routers/pizzas';
+import cookieParser from 'cookie-parser';
 
 const app = express();
 const port = 8000;
@@ -14,6 +15,8 @@ app.use(
     credentials: true,
   }),
 );
+
+app.use(cookieParser())
 
 app.use(express.json());
 app.use(express.static('public'));

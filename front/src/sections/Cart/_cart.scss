@@ -2,6 +2,14 @@
   display: flex;
   flex-direction: column;
   height: 90vh;
+  .no-order{
+    background-color: rgb(223, 207, 207);
+    padding: 5rem;
+    margin: auto auto;
+    border-radius: 10%;
+    color: rgb(0, 0, 0);
+    box-shadow: 1px 2px 20px 1px;
+  }
   .cart-top {
     p {
       font-weight: 500;

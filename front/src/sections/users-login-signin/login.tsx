@@ -3,8 +3,9 @@ import InputData from '../../components/inputData/InputData';
 import { signInWithElements } from '../../GlobalConstant';
 import { useState } from 'react';
 import type { ILoginMutation } from '../../types';
-import { useAppDispatch } from '../../app/hooks';
+import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { login } from './usersThunk';
+import { selectLoginError } from './usersSlice';
 
 const initialState = {
   email: '',
@@ -15,6 +16,7 @@ const LoginSection = () => {
   const [userForm, setUserForm] = useState<ILoginMutation>(initialState);
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
+  const loginError = useAppSelector(selectLoginError);
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value, name } = e.target;
@@ -40,7 +42,8 @@ const LoginSection = () => {
         <button></button>
         <h4>Let's Sign you in</h4>
       </div>
-      <span>Enter registered name to Sign in</span>
+      <span className=''>Enter registered name to Sign in</span>
+       <span className='loging-error'>{loginError?.error}</span>
       <form onSubmit={onSubmit}>
         <InputData title="email" name="email" type="text" onChange={onChange} />
         <InputData title="password" name="password" type="password" onChange={onChange} />

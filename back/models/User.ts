@@ -23,7 +23,7 @@ export const generateTokenJWT = (_id: mongoose.Types.ObjectId) => {
   return jwt.sign({ _id }, JWT_SECRET, { expiresIn: '365d' });
 };
 
-const JWT_SECRET = process.env.JWT_SECRET || 'default_fallback_secret';
+export const JWT_SECRET = process.env.JWT_SECRET || 'default_fallback_secret';
 
 type UserModel = Model<IUSerFields, {}, IUsersMethods>;
 

@@ -5,6 +5,7 @@
   height: 100vh;
   margin-top: 5vh;
   position: relative;
+
   .login-singin-page-top {
     button {
       border: none;
@@ -49,6 +50,13 @@
         }
       }
     }
+  }
+  .loging-error {
+    color: red;
+    transition: all 1s ease-in-out;
+    animation: jump 1s ease-out 4s infinite;
+    right: 40px;
+    bottom: -30px;
   }
   h4 {
     font-size: 28px;

@@ -48,7 +48,7 @@ const RegisterSection = () => {
         <InputData title="email" name="email" type="text" onChange={onChangeInput} />
         <InputData title="password" name="password" type="password" onChange={onChangeInput} />
         <InputData title="confirm Password" name="confirmPassword" type="password" onChange={onChangeInput} />
-        {/* <FileInput name='ge' label="image" onGetFile={()=>console.log("sd")}/> */}
+    
         <div className="check-box-form">
           <input
             id="check-box-input"

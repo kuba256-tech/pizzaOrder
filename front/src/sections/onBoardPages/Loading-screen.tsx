@@ -8,7 +8,6 @@ import StartPage4 from './StartPage4';
 
 const LoadingScreen = () => {
   const [index, setIndex] = useState(0);
-
   useEffect(() => {
     const timer = setTimeout(() => {
       if (index < 2) {
