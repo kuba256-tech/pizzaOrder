@@ -5,12 +5,12 @@ import { Error } from 'mongoose';
 const pizzaRouter = express.Router();
 
 pizzaRouter.get('/', async (req, res, next) => {
-    let {sort, order} = req.query
-    const orderBy = order === "asc" ? 1 : -1 
-    sort = !sort ? "title" :sort as string
+  let { sort, order } = req.query;
+  const orderBy = order === 'asc' ? 1 : -1;
+  sort = !sort ? 'title' : (sort as string);
 
   try {
-    let pizzas = await Pizza.find().sort({[sort]:orderBy});
+    let pizzas = await Pizza.find().sort({ [sort]: orderBy });
     res.status(200).send(pizzas);
   } catch (error) {
     if (error instanceof Error.ValidationError) {

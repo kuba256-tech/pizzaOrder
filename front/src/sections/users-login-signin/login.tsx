@@ -42,8 +42,8 @@ const LoginSection = () => {
         <button></button>
         <h4>Let's Sign you in</h4>
       </div>
-      <span className=''>Enter registered name to Sign in</span>
-       <span className='loging-error'>{loginError?.error}</span>
+      <span className="">Enter registered name to Sign in</span>
+      <span className="loging-error">{loginError?.error}</span>
       <form onSubmit={onSubmit}>
         <InputData title="email" name="email" type="text" onChange={onChange} />
         <InputData title="password" name="password" type="password" onChange={onChange} />

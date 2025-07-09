@@ -1,11 +1,10 @@
-import { NextFunction, Request, Response } from "express";
-import { HydratedDocument } from "mongoose";
+import { NextFunction, Request, Response } from 'express';
+import { HydratedDocument } from 'mongoose';
 
-import jwt, { TokenExpiredError } from "jsonwebtoken";
+import jwt, { TokenExpiredError } from 'jsonwebtoken';
 
-import User, { JWT_SECRET } from "../models/User";
-import { IUSerFields } from "../types";
-
+import User, { JWT_SECRET } from '../models/User';
+import { IUSerFields } from '../types';
 
 export interface RequestWithUser extends Request {
   user: HydratedDocument<IUSerFields>;
@@ -18,7 +17,7 @@ const auth = async (expressReq: Request, res: Response, next: NextFunction) => {
     const jwtToken = req.cookies.token;
 
     if (!jwtToken) {
-      res.status(401).send({ error: "No token provided." });
+      res.status(401).send({ error: 'No token provided.' });
       return;
     }
     const decoded = jwt.verify(jwtToken, JWT_SECRET) as { _id: string };
@@ -26,7 +25,7 @@ const auth = async (expressReq: Request, res: Response, next: NextFunction) => {
     const user = await User.findOne({ _id: decoded._id, token: jwtToken });
 
     if (!user) {
-      res.status(401).send({ error: "User not found or invalid token" });
+      res.status(401).send({ error: 'User not found or invalid token' });
       return;
     }
 
@@ -34,9 +33,9 @@ const auth = async (expressReq: Request, res: Response, next: NextFunction) => {
     next();
   } catch (e) {
     if (e instanceof TokenExpiredError) {
-      res.status(401).send({ error: "Your token expired" });
+      res.status(401).send({ error: 'Your token expired' });
     } else {
-      res.status(401).send({ error: "Please log in to authenticate" });
+      res.status(401).send({ error: 'Please log in to authenticate' });
     }
   }
 };

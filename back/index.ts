@@ -12,19 +12,18 @@ const port = 8000;
 
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: ['http://localhost:5173', 'https://pizza-order-front.vercel.app'],
     credentials: true,
   }),
 );
 
-app.use(cookieParser())
+app.use(cookieParser());
 
 app.use(express.json());
 app.use(express.static('public'));
 
 app.use('/users', usersRouter);
 app.use('/pizzas', pizzaRouter);
-
 
 const run = async () => {
   await mongoose.connect(config.db);

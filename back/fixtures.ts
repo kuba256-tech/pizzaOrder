@@ -69,7 +69,7 @@ const run = async () => {
       information:
         'Sink your teeth into our handcrafted pizza, made with a crispy golden crust, rich tomato sauce, and the finest melted cheeses. Topped with your favorite ingredients and baked to perfection — every bite is a slice of heaven.',
     },
-     {
+    {
       title: '5 Types',
       image: 'fixtures/pizzas/4types.jpg',
       price: 20,

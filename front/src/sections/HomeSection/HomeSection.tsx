@@ -16,12 +16,10 @@ const HomeSection = () => {
   const currentUser = useAppSelector(selectUser);
   const pizzas = useAppSelector(selectAllPizzas);
   const [onSearchSort, setOnSearchSort] = useState('');
-  const [onSortBy, setOnSortBy] = useState("");
+  const [onSortBy, setOnSortBy] = useState('');
 
   const inputRef = useRef<HTMLInputElement>(null);
   const location = useLocation();
-
-
 
   const dispatch = useAppDispatch();
   const [openWindow, setOpenWindow] = useState({ open: false, index: 0 });

@@ -39,7 +39,7 @@ usersRouter.post('/session', async (req, res, next) => {
       res.status(400).send({
         error: 'email and password must be in req',
       });
-      return
+      return;
     }
     const user = await User.findOne({ email: req.body.email });
 
@@ -54,7 +54,7 @@ usersRouter.post('/session', async (req, res, next) => {
     }
     user.generateToken();
     await user.save();
-    
+
     res.cookie('token', user.token, {
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',

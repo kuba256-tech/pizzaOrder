@@ -1,5 +1,5 @@
 import { useAppSelector } from '../../app/hooks';
-import {selectRegisterError } from '../../sections/users-login-signin/usersSlice';
+import { selectRegisterError } from '../../sections/users-login-signin/usersSlice';
 
 interface IDataInput {
   title: string;
@@ -8,7 +8,7 @@ interface IDataInput {
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const InputData: React.FC<IDataInput> = ({ title, name, type, onChange}) => {
+const InputData: React.FC<IDataInput> = ({ title, name, type, onChange }) => {
   const registerError = useAppSelector(selectRegisterError);
 
   const getFieldError = (fieldName: string) => {

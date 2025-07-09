@@ -13,10 +13,10 @@ const BottomNavBar = () => {
   const cartOrder = useAppSelector(selectCartsOrder);
   const dispathc = useAppDispatch();
 
-  const onCLickLogOut = async()=>{
+  const onCLickLogOut = async () => {
     await dispathc(logOutThunk());
     dispathc(logOutReducer());
-  }
+  };
 
   let amount = cartOrder.reduce((sum, value) => sum + value.amount, 0);
 
@@ -35,7 +35,7 @@ const BottomNavBar = () => {
         <span>Cart</span>
         <span className="cart-amount">{amount > 0 && amount}</span>
       </NavLink>
-      <NavLink to="/"  onClick={onCLickLogOut} className={({ isActive }) => (isActive ? 'nav-item active' : 'nav-item')}>
+      <NavLink to="/" onClick={onCLickLogOut} className={({ isActive }) => (isActive ? 'nav-item active' : 'nav-item')}>
         <img src={profileIcon} alt="Profile" />
         <span>Profile</span>
       </NavLink>
